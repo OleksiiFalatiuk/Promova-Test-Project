@@ -1,0 +1,16 @@
+plugins {
+    id 'core.common'
+}
+
+android {
+    namespace "${packageName}.core.common"
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:localization")
+}

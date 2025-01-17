@@ -1,0 +1,54 @@
+plugins {
+    id 'com.jraska.module.graph.assertion'
+}
+
+moduleGraphAssert {
+    restricted = [
+            ":app -X> :.*:remote",
+            ":app -X> :.*:local",
+
+            ":buildSrc -X> :features:.*",
+            ":buildSrc -X> :shared:.*",
+
+            ":shared:.* -X> :features:.*",
+
+            ":.*:presentation -X> :.*:data",
+            ":.*:presentation -X> :.*:models:remote",
+            ":.*:presentation -X> :.*:models:local",
+            ":.*:presentation -X> :.*:core:cdn:generators",
+            ":.*:presentation -X> :core:network",
+            ":.*:presentation -X> :core:database",
+
+            ":.*:domain -X> :.*:presentation",
+            ":.*:domain -X> :.*:data",
+            ":.*:domain -X> :.*:models:presentation",
+            ":.*:domain -X> :.*:models:remote",
+            ":.*:domain -X> :.*:models:local",
+            ":.*:domain -X> :core:cdn:generators",
+            ":.*:domain -X> :core:network",
+            ":.*:domain -X> :core:database",
+
+            //This rule modified to fit Track unlayered model
+            ":.*:data -X> :shared.*:presentation",
+            ":.*:data -X> :features.*:presentation",
+            ":.*:data -X> :core:designsystem",
+            ":.*:data -X> :core:localization",
+
+            ":.*:models:remote -X> :.*:presentation",
+            ":.*:models:remote -X> :.*:local",
+            ":.*:models:remote -X> :core:localization",
+            ":.*:models:remote -X> :core:designsystem",
+
+            ":.*:models:local -X> :.*:presentation",
+            ":.*:models:local -X> :.*:remote",
+            ":.*:models:local -X> :core:localization",
+            ":.*:models:local -X> :core:designsystem",
+
+            ":.*:models:domain -X> :core:designsystem",
+            ":.*:models:domain -X> :core:localization",
+
+            ":.*:models:.* -X> :core:network",
+            ":.*:models:.* -X> :core:database",
+    ]
+    assertOnAnyBuild = false
+}

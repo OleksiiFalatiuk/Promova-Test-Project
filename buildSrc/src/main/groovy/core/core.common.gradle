@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'android.serialization'
+    id 'app.baseconfig'
+    id 'app.compose'
+    id 'android.paging'
+}
+
+dependencies {
+    // Kotlin
+    implementation libs.kotlinDependencies.core
+    implementation libs.kotlinDependencies.lifecycle
+    implementation libs.kotlinDependencies.serialization
+
+    // Android
+    implementation libs.androidCoreDependencies.appcompat
+
+    // Tests
+    testImplementation libs.testDependencies.junit
+    androidTestImplementation libs.testDependencies.junitExt
+    androidTestImplementation libs.testDependencies.compose
+
+    // Datastore
+    implementation libs.datastoreDependencies.datastore
+    implementation libs.datastoreDependencies.datastoreCore
+
+    // Hilt
+    implementation libs.hiltDependencies.hilt
+    kapt libs.hiltDependencies.kapt
+    implementation libs.hiltDependencies.navigationCompose
+
+    // Coil
+    implementation libs.composeCoil.core
+
+    // DocumentFile
+    implementation libs.documentfileDependencies.core
+}

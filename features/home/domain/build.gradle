@@ -1,0 +1,16 @@
+plugins {
+    id 'base.domain'
+    id 'android.paging'
+}
+
+android {
+    namespace "${packageName}.features.home.domain"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:common")
+
+    // Features modules
+    implementation project(":features:home:models:domain")
+}

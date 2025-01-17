@@ -1,0 +1,22 @@
+plugins {
+    id 'base.data'
+}
+
+android {
+    namespace "${packageName}.shared.settings.data"
+}
+
+dependencies {
+    // Datastore
+    implementation libs.datastoreDependencies.datastore
+    implementation libs.datastoreDependencies.datastoreCore
+
+    // Local modules
+    implementation project(":core:common")
+
+    // Shared modules
+    implementation project(":shared:settings:models:local")
+    implementation project(":shared:settings:domain")
+    implementation project(":shared:user:models:domain")
+    implementation project(":shared:user:models:local")
+}

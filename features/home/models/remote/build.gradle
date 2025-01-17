@@ -1,0 +1,8 @@
+plugins {
+    id 'base.models.remote'
+}
+
+dependencies {
+    // Local modules
+    implementation project(":features:home:models:domain")
+}

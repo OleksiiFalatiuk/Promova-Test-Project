@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="button_login_title">Continue with facebook</string>
+    <string name="snackbar_dismiss_action_title">Okay</string>
+    <string name="snackbar_message">An error has occurred (%s)</string>
+    <string name="snackbar_title">Error</string>
+</resources>

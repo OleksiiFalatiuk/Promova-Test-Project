@@ -1,0 +1,13 @@
+plugins {
+    id 'core.designsystem'
+}
+
+android {
+    namespace "${packageName}.core.designsystem"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:common")
+    implementation project(":core:localization")
+}

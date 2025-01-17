@@ -1,0 +1,39 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = "Promova Tes Project"
+include ':app'
+include ':core'
+include ':core:designsystem'
+include ':core:common'
+include ':core:localization'
+include ':features'
+include ':features:login'
+include ':features:login:presentation'
+include ':features:home'
+include ':features:home:models'
+include ':features:home:models:remote'
+include ':features:home:models:domain'
+include ':features:home:models:presentation'
+include ':features:home:data'
+include ':features:home:domain'
+include ':features:home:presentation'
+include ':shared'
+include ':shared:settings'
+include ':shared:settings:models'
+include ':shared:settings:data'
+include ':shared:settings:models:local'
+include ':shared:settings:domain'
+include ':shared:login'
+include ':shared:login:domain'
+include ':shared:user'
+include ':shared:user:models'
+include ':shared:user:models:domain'
+include ':shared:user:models:presentation'
+include ':shared:user:models:local'
+include ':core:network'

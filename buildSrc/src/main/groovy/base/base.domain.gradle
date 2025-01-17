@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'app.baseconfig'
+    id 'core.localization'
+}
+
+project.afterEvaluate {
+    if (gradle.startParameter.taskNames.any { it.contains("Release") }) {
+        plugins.apply("com.ibotta.gradle.aop")
+    }
+}
+
+dependencies {
+    releaseImplementation libs.aspectjweaver
+
+    // Kotlin
+    implementation libs.kotlinDependencies.core
+
+    // Hilt
+    implementation libs.hiltDependencies.hilt
+    kapt libs.hiltDependencies.kapt
+}

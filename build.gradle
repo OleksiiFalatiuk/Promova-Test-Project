@@ -1,0 +1,42 @@
+buildscript {
+    ext {
+        packageName = "com.example"
+
+        gradleDependencies = [
+                compileSdk: 34,
+                targetSdk : 34,
+                minSdk    : 26
+        ]
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath libs.plugins.root.google.services.get().toString()
+        classpath libs.plugins.root.firebase.perf.get().toString()
+    }
+}
+
+plugins {
+    alias libs.plugins.android.application apply false
+    alias libs.plugins.android.library apply false
+    alias libs.plugins.kotlin.android apply false
+    alias libs.plugins.kotlin.jvm apply false
+    alias libs.plugins.android.hilt apply false
+    alias libs.plugins.kotlin.serialization apply false
+    alias libs.plugins.module.assertion apply false
+    alias libs.plugins.compose.compiler apply false
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}

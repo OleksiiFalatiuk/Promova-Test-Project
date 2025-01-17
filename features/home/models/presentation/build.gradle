@@ -1,0 +1,12 @@
+plugins {
+    id 'base.models.presentation'
+}
+
+android {
+    namespace "${packageName}.features.home.models.presentation"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":features:home:models:domain")
+}

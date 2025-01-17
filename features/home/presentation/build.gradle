@@ -1,0 +1,18 @@
+plugins {
+    id 'base.presentation'
+    id 'android.paging'
+}
+
+android {
+    namespace "${packageName}.features.home.presentation"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:common")
+    implementation project(":core:designsystem")
+
+    implementation project(":features:home:domain")
+    implementation project(":features:home:models:domain")
+    implementation project(":features:home:models:presentation")
+}

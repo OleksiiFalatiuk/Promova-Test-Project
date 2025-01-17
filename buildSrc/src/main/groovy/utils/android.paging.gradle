@@ -1,0 +1,10 @@
+plugins {
+    id 'com.android.library'
+    id 'app.baseconfig'
+}
+
+dependencies {
+    // Paging
+    implementation libs.pagingDependencies.core
+    implementation libs.pagingDependencies.compose
+}

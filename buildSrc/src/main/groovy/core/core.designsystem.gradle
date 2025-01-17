@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'app.baseconfig'
+    id 'app.compose'
+    id 'core.localization'
+}
+
+android {
+    sourceSets {
+        main {
+            res.srcDirs += "src/main/res/figma-export-icons"
+            res.srcDirs += "src/main/res/figma-export-images"
+        }
+    }
+}
+
+dependencies {
+    // Kotlin
+    implementation libs.kotlinDependencies.core
+    implementation libs.kotlinDependencies.lifecycle
+
+    // Jetpack Compose
+    implementation libs.composeDependencies.composeActivity
+    implementation libs.composeDependencies.composeUi
+    implementation libs.composeDependencies.composeUiTooling
+    implementation libs.composeDependencies.composePreview
+    implementation libs.composeDependencies.composeMaterial2
+    implementation libs.composeDependencies.composeMaterial3
+    implementation libs.composeDependencies.composeNavigation
+    implementation libs.composeDependencies.composeConstraintLayout
+
+    // Accompanist
+    implementation libs.composeAccompanist.composeUi
+    implementation libs.composeAccompanist.accompanistPlaceholder
+
+    // Coil
+    implementation libs.composeCoil.core
+
+    // Permissions
+    implementation libs.composeAccompanist.permissions
+
+    // Compose View Pager
+    implementation libs.composeAccompanist.accompanistPager
+    implementation libs.composeAccompanist.composeUi
+
+    // Tests
+    testImplementation libs.testDependencies.junit
+    androidTestImplementation libs.testDependencies.junitExt
+    androidTestImplementation libs.testDependencies.compose
+
+    // Paging
+    implementation libs.pagingDependencies.core
+    implementation libs.pagingDependencies.compose
+
+    // Accompanist
+    implementation libs.composeAccompanist.navigation
+
+    // LibPhoneNumber
+    implementation libs.libphonenumber.core
+}

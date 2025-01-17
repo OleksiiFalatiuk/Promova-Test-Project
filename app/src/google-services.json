@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "690067546881",
+    "project_id": "promova-test-project",
+    "storage_bucket": "promova-test-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690067546881:android:551867cf5417be7b11b100",
+        "android_client_info": {
+          "package_name": "com.example.promovatesproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690067546881-usoc5j3p2sss59p2bhfr17a4t54k4i3g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.promovatesproject",
+            "certificate_hash": "7118b37b79cdcdce51b771cda842fa980fc58603"
+          }
+        },
+        {
+          "client_id": "690067546881-sdrep3h8oep5587s1d4qegg3kqiugtk6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCccvDTpO650IL3DF8QYBCSN6tcS9GE9_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690067546881-sdrep3h8oep5587s1d4qegg3kqiugtk6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

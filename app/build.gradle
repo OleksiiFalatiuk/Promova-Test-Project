@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'app.dependencies'
+}
+
+def getVersionCode = { ->
+    return project.hasProperty('versionCode') ? versionCode.toInteger() : 1
+}
+
+android {
+    namespace "${packageName}.promovatesproject"
+    compileSdk gradleDependencies.compileSdk
+
+    defaultConfig {
+        minSdk gradleDependencies.minSdk
+        targetSdk gradleDependencies.targetSdk
+
+        versionCode getVersionCode()
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        resValue("string", "app_name", "Promovatesproject")
+        setProperty("archivesBaseName", "promovatesproject-${versionName}")
+    }
+
+    applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
+            def flavor = variant.name
+            def versionName = variant.versionName
+            outputFileName = "promovatesproject-${flavor}_${versionName}.apk"
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+        resValues true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/gradle/incremental.annotation.processors'
+    }
+
+    androidResources {
+        generateLocaleConfig true
+    }
+}
+
+dependencies {
+    // Local modules
+    // Core
+    implementation project(":core:designsystem")
+    implementation project(":core:common")
+    implementation project(":core:localization")
+
+    // Features modules
+    implementation project(":features:login:presentation")
+    implementation project(":features:home:presentation")
+    implementation project(":features:home:data")
+
+    // Shared modules
+    implementation project(":shared:settings:domain")
+    implementation project(":shared:settings:data")
+    implementation project(":shared:user:models:domain")
+}

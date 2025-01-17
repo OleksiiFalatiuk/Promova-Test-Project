@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'app.baseconfig'
+    id 'app.compose'
+    id 'core.localization'
+}
+
+project.afterEvaluate {
+    if (gradle.startParameter.taskNames.any { it.contains("Release") }) {
+        plugins.apply("com.ibotta.gradle.aop")
+    }
+}
+
+dependencies {
+    releaseImplementation libs.aspectjweaver
+
+    // Kotlin
+    implementation libs.kotlinDependencies.core
+    implementation libs.kotlinDependencies.lifecycle
+    implementation libs.kotlinDependencies.coroutines
+    implementation(platform(libs.kotlinDependencies.bom))
+
+    // Jetpack Compose
+    implementation libs.composeDependencies.composeActivity
+    implementation libs.composeDependencies.composeNavigation
+    implementation libs.composeDependencies.composeUi
+    implementation libs.composeDependencies.composePreview
+    implementation libs.composeDependencies.composeMaterial2
+    implementation libs.composeDependencies.composeMaterial3
+    implementation libs.composeDependencies.composeConstraintLayout
+    implementation libs.composeDependencies.runtime
+    debugImplementation libs.composeDependencies.composeUiTooling
+    debugImplementation libs.composeDependencies.composeUiTestManifest
+
+    // Coil
+    implementation libs.composeCoil.core
+
+    // Hilt
+    implementation libs.hiltDependencies.hilt
+    kapt libs.hiltDependencies.kapt
+    implementation libs.hiltDependencies.navigationCompose
+
+    // Accompanist
+    implementation libs.composeAccompanist.navigation
+}

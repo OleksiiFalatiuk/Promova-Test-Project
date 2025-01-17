@@ -1,0 +1,26 @@
+plugins {
+    id 'base.domain'
+}
+
+android {
+    namespace "${packageName}.shared.login.domain"
+    compileSdk gradleDependencies.compileSdk
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Auth
+    implementation platform(libs.firebaseDependencies.bom)
+    implementation libs.playServiceDependencies.auth
+    implementation libs.firebaseDependencies.auth
+
+    // Local modules
+    implementation project(":core:common")
+    implementation project(":core:designsystem")
+
+    // Shared modules
+    implementation project(":shared:user:models:domain")
+}

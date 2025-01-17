@@ -1,0 +1,16 @@
+plugins {
+    id 'base.domain'
+}
+
+android {
+    namespace "${packageName}.shared.settings.domain"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:common")
+
+    // Shared modules
+    implementation project(":shared:user:models:domain")
+    implementation project(":shared:user:models:local")
+}

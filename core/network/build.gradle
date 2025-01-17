@@ -1,0 +1,16 @@
+plugins {
+    id 'core.network'
+}
+
+android {
+    namespace "${packageName}.core.network"
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Locale modules
+    implementation project(":core:common")
+}

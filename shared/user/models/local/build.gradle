@@ -1,0 +1,12 @@
+plugins {
+    id 'base.models.local'
+}
+
+android {
+    namespace "${packageName}.shared.user.models.local"
+}
+
+dependencies {
+    // Shared modules
+    implementation project(":shared:user:models:domain")
+}

@@ -1,0 +1,18 @@
+plugins {
+    id 'base.presentation'
+}
+
+android {
+    namespace "${packageName}.features.login.presentation"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:common")
+    implementation project(":core:designsystem")
+
+    // Shared modules
+    implementation project(":shared:login:domain")
+    implementation project(":shared:settings:domain")
+    implementation project(":shared:user:models:domain")
+}

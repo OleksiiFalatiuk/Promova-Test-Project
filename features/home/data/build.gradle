@@ -1,0 +1,18 @@
+plugins {
+    id 'base.data'
+    id 'android.paging'
+}
+
+android {
+    namespace "${packageName}.features.home.data"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:common")
+    implementation project(":core:network")
+
+    implementation project(":features:home:domain")
+    implementation project(":features:home:models:domain")
+    implementation project(":features:home:models:remote")
+}

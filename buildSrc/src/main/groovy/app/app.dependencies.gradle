@@ -1,0 +1,49 @@
+plugins {
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+    id 'app.compose'
+    id 'app.android.java'
+    id 'module.assertion'
+    id 'com.google.firebase.firebase-perf'
+}
+
+dependencies {
+    // Kotlin
+    implementation libs.kotlinDependencies.core
+    implementation libs.kotlinDependencies.lifecycle
+    implementation libs.kotlinDependencies.livedata
+
+    // Android
+    implementation libs.androidCoreDependencies.appcompat
+
+    // Jetpack Compose
+    implementation libs.composeDependencies.composeActivity
+    implementation libs.composeDependencies.composeUi
+    implementation libs.composeDependencies.composePreview
+    implementation libs.composeDependencies.composeMaterial2
+    implementation libs.composeDependencies.composeMaterial3
+    implementation libs.composeDependencies.composeNavigation
+    implementation libs.composeDependencies.composeConstraintLayout
+    implementation libs.composeDependencies.runtime
+
+    // Coil
+    implementation libs.composeCoil.core
+    implementation libs.composeCoil.svg
+
+    // Tests
+    testImplementation libs.testDependencies.junit
+    androidTestImplementation libs.testDependencies.junitExt
+    androidTestImplementation libs.testDependencies.compose
+
+    // Firebase
+    implementation platform(libs.firebaseDependencies.bom)
+    implementation libs.firebaseDependencies.performance
+
+    // Hilt
+    implementation libs.hiltDependencies.hilt
+    kapt libs.hiltDependencies.kapt
+    implementation libs.hiltDependencies.navigationCompose
+
+    // Accompanist
+    implementation libs.composeAccompanist.navigation
+}

@@ -1,0 +1,19 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'app.baseconfig'
+    id 'app.compose'
+    id 'core.localization'
+}
+
+dependencies {
+    // Kotlin
+    implementation libs.kotlinDependencies.core
+    implementation libs.kotlinDependencies.lifecycle
+    implementation libs.kotlinDependencies.coroutines
+    implementation(platform(libs.kotlinDependencies.bom))
+
+    // Jetpack Compose
+    implementation libs.composeDependencies.composeUi
+}

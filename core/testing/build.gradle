@@ -1,0 +1,26 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'app.baseconfig'
+    id 'base.presentation'
+    id 'android.paging'
+    id 'android.serialization'
+}
+
+android {
+    namespace 'com.promovatestproject.testing'
+}
+
+dependencies {
+    // Testing
+    implementation libs.testDependencies.junit
+    implementation libs.testDependencies.coroutines
+    implementation libs.testDependencies.kotlinTest
+    implementation libs.testDependencies.paging
+    implementation libs.testDependencies.junitExt
+    implementation libs.testDependencies.rules
+
+    // Features modules
+    implementation project(":features:home:domain")
+    implementation project(":features:home:models:domain")
+}

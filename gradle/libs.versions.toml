@@ -61,7 +61,10 @@ playServiceLocationVersion = "21.3.0"
 
 # testDependencies
 junitVersion = "4.13.2"
-junitKtxVersion = "1.2.1"
+junitKtxVersion = "1.1.5"
+runnerVersion = "1.5.2"
+testVersion = "1.5.0"
+espressoCoreVersion = "3.5.1"
 
 # mapDependencies
 composeMapsVersion = "4.3.2"
@@ -101,7 +104,6 @@ firebasePerfPluginVersion = "1.4.2"
 
 playServicesAuthApiPhoneVersion = "18.1.0"
 junit = "1.2.1"
-espressoCoreVersion = "3.6.1"
 materialVersion = "1.12.0"
 
 [libraries]
@@ -177,6 +179,14 @@ playServiceDependencies-location = { module = "com.google.android.gms:play-servi
 testDependencies-junit = { module = "junit:junit", version.ref = "junitVersion" }
 testDependencies-junitExt = { module = "androidx.test.ext:junit-ktx", version.ref = "junitKtxVersion" }
 testDependencies-compose = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "composeVersion" }
+testDependencies-runner = { module = "androidx.test:runner", version.ref = "runnerVersion" }
+testDependencies-core = { module = "androidx.test:core", version.ref = "testVersion" }
+testDependencies-rules = { module = "androidx.test:rules", version.ref = "testVersion" }
+testDependencies-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutinesVersion" }
+testDependencies-kotlinTest = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlinCore" }
+testDependencies-paging = { module = "androidx.paging:paging-testing", version.ref = "pagingVersion" }
+testDependencies-hilt = { module = "com.google.dagger:hilt-android-testing", version.ref = "hiltVersion" }
+testDependencies-espressoCore = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
 
 lottieDependencies-core = { module = "com.airbnb.android:lottie", version.ref = "lottieVersion" }
 lottieDependencies-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieVersion" }

@@ -1,6 +1,6 @@
 package com.promovatesproject.shared.user.models.presentation
 
-import com.promovatestproject.shared.user.models.domain.UserDomainModel
+import com.example.shared.user.models.domain.UserDomainModel
 
 data class UserPresentationModel(
     val accessKey: String,

@@ -1,0 +1,11 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-kapt'
+}
+
+dependencies {
+    // Room
+    implementation libs.roomDependencies.room
+    kapt libs.roomDependencies.kapt
+    testImplementation libs.roomDependencies.testing
+}

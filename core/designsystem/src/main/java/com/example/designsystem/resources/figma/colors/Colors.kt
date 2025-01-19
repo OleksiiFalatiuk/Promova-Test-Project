@@ -19,3 +19,15 @@ fun FigmaColors.basicBlack(): Color = colorResource(id = R.color.basic_black)
 @Composable
 @ReadOnlyComposable
 fun FigmaColors.basicBackground(): Color = colorResource(id = R.color.basic_background)
+
+@Composable
+@ReadOnlyComposable
+fun FigmaColors.basicPurple(): Color = colorResource(id = R.color.basic_purple)
+
+@Composable
+@ReadOnlyComposable
+fun FigmaColors.basicMint(): Color = colorResource(id = R.color.basic_mint)
+
+@Composable
+@ReadOnlyComposable
+fun FigmaColors.basicBlue(): Color = colorResource(id = R.color.basic_blue)

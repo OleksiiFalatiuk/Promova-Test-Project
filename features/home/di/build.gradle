@@ -1,0 +1,22 @@
+plugins {
+    id 'base.data'
+    id 'android.room'
+    id 'android.paging'
+}
+
+android {
+    namespace "${packageName}.features.home.di"
+}
+
+dependencies {
+
+    // Local dependencies
+    implementation project(':core:common')
+    implementation project(':core:database')
+    implementation project(':core:network')
+
+    // Features modules
+    implementation project(":features:home:models:domain")
+    implementation project(":features:home:domain")
+    implementation project(":features:home:data")
+}

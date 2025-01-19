@@ -11,6 +11,9 @@ import com.example.promovatesproject.ui.navigation.home.homeNavGraph
 import com.example.promovatesproject.ui.navigation.login.loginNavGraph
 import com.example.promovatesproject.ui.navigation.navhost.BaseNavHost
 import com.example.promovatesproject.ui.viewmodel.MainViewModel
+import com.promovatestproject.features.splash.presentation.constants.SplashConstants
+import com.promovatestproject.features.splash.presentation.navigation.splashGraph
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 
@@ -38,6 +41,11 @@ internal fun HandleSideEffects(
                 MainViewModel.SideEffect.GoToHomeGraph -> RootDestination.HOME.route
             }
 
+            if (navController.currentBackStackEntry?.destination?.route == RootDestination.SPLASH.route) {
+                val splashScreenDelay = SplashConstants.SPLASH_DURATION
+                delay(splashScreenDelay)
+            }
+
             // if destination == currentBackStackEntry.destination do nothing
             if (navController.currentBackStackEntry?.destination?.route == destination) {
                 return@collectLatest
@@ -58,8 +66,12 @@ internal fun MainScreen(navController: NavHostController) {
             ) {
                 navigation(
                     route = RootDestination.ROOT.route,
-                    startDestination = RootDestination.LOGIN.route
+                    startDestination = RootDestination.SPLASH.route
                 ) {
+                    splashGraph(
+                        parentRoute = RootDestination.SPLASH.route
+                    )
+
                     loginNavGraph(
                         parentRoute = RootDestination.LOGIN.route,
                         showSnackbar = snackbarHostState.value::showSnackbar

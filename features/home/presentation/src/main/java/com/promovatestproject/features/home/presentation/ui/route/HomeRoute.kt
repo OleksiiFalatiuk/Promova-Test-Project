@@ -1,17 +1,33 @@
 package com.promovatestproject.features.home.presentation.ui.route
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.designsystem.components.pager.TabsPager
+import com.example.designsystem.resources.dimens.Dimens
+import com.example.designsystem.resources.figma.colors.FigmaColors
+import com.example.designsystem.resources.figma.colors.basicBackground
+import com.example.designsystem.resources.figma.colors.basicPurple
+import com.promovatestproject.features.home.models.presentation.FilmPresentationModel
+import com.promovatestproject.features.home.models.presentation.HomeTabsTypePresentationModel
+import com.promovatestproject.features.home.presentation.ui.components.AvatarImage
+import com.promovatestproject.features.home.presentation.ui.components.FilmsLocalContainer
+import com.promovatestproject.features.home.presentation.ui.components.FilmsPagingContainer
 import com.promovatestproject.features.home.presentation.ui.viewmodel.HomeViewModel
 import com.promovatestproject.features.home.presentation.ui.viewmodel.HomeViewModelState
 import com.promovatestproject.features.home.presentation.ui.viewmodel.SideEffect
@@ -28,7 +44,10 @@ internal fun HomeRoute(
 
     HomeScreen(
         uiState = uiState,
-        showSnackbar = viewModel::showSnackbar
+        showSnackbar = viewModel::showSnackbar,
+        onLikeClick = viewModel::likeFilm,
+        onDeleteClick = viewModel::deleteLikedFilm,
+        onShareClick = {}
     )
 
     HandleSideEffects(
@@ -56,17 +75,69 @@ internal fun HandleSideEffects(
 @Composable
 internal fun HomeScreen(
     uiState: HomeViewModelState,
-    showSnackbar: (message: String) -> Unit
+    showSnackbar: (message: String) -> Unit,
+    onLikeClick: (film: FilmPresentationModel) -> Unit,
+    onDeleteClick: (film: FilmPresentationModel) -> Unit,
+    onShareClick: () -> Unit
 ) {
     Column(
-        modifier = Modifier.systemBarsPadding(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = FigmaColors.basicPurple())
+            .systemBarsPadding(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            text = "AAAAAAAAAA"
-        )
+            horizontalAlignment = Alignment.End
+        ) {
+            AvatarImage(
+                modifier = Modifier
+                    .padding(
+                        top = Dimens.spacingNormal,
+                        end = Dimens.spacingNormal
+                    ),
+                avatarImage = uiState.user?.profileImageUrl
+            )
+
+            Spacer(modifier = Modifier.height(Dimens.spacingBigSpecial))
+        }
+
+        TabsPager(
+            modifier = Modifier.fillMaxSize(),
+            tabRowModifier = Modifier.fillMaxWidth(),
+            pagerModifier = Modifier
+                .fillMaxHeight()
+                .background(color = FigmaColors.basicBackground()),
+            pages = HomeTabsTypePresentationModel.entries.map { tab ->
+                stringResource(id = tab.title).uppercase()
+            },
+            beyondBoundsPageCount = 1,
+            initialPage = 0
+        ) { pageIndex ->
+            when (pageIndex) {
+                HomeTabsTypePresentationModel.FILMS.ordinal -> {
+                    FilmsPagingContainer(
+                        pagingFilms = uiState.films,
+                        localFilms = uiState.filmsFromLocal,
+                        showSnackbar = showSnackbar,
+                        onLikeClick = onLikeClick,
+                        onDeleteClick = onDeleteClick,
+                        onShareClick = onShareClick
+                    )
+                }
+
+                HomeTabsTypePresentationModel.FAVOURITES.ordinal -> {
+                    FilmsLocalContainer(
+                        localFilms = uiState.filmsFromLocal.sortedByDescending { it.releaseDate },
+                        onLikeClick = onLikeClick,
+                        onDeleteClick = onDeleteClick,
+                        onShareClick = onShareClick
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -75,8 +146,13 @@ internal fun HomeScreen(
 private fun HomeScreenPreview() {
     HomeScreen(
         uiState = HomeViewModelState(
-            homeFlow = flowOf()
+            user = null,
+            films = flowOf(),
+            filmsFromLocal = emptyList()
         ),
-        showSnackbar = {}
+        showSnackbar = {},
+        onLikeClick = {},
+        onDeleteClick = {},
+        onShareClick = {}
     )
 }

@@ -1,0 +1,13 @@
+plugins {
+    id 'base.presentation'
+}
+
+android {
+    namespace "${packageName}.features.splash.presentation"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:common")
+    implementation project(":core:designsystem")
+}

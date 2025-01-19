@@ -2,11 +2,12 @@ package com.promovatestproject.features.home.models.presentation
 
 import com.promovatestproject.features.home.models.domain.HomeDomainModel
 
-// TODO: This code is generated from a template. You need to add your implementation
 data class HomePresentationModel(
-    val id: String
+    val releaseDate: String,
+    val films: List<FilmPresentationModel>
 )
 
 fun HomeDomainModel.toPresentationModel() = HomePresentationModel(
-    id = id
+    releaseDate = releaseDate,
+    films = films.map { it.toPresentationModel() }
 )

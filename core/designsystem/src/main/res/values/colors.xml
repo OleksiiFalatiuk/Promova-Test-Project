@@ -3,4 +3,7 @@
     <color name="basic_white">#FFFFFF</color>
     <color name="basic_black">#000000</color>
     <color name="basic_background">#F6F6F6</color>
+    <color name="basic_purple">#6200EE</color>
+    <color name="basic_mint">#03DAC5</color>
+    <color name="basic_blue">#00E0FF</color>
 </resources>

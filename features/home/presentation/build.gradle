@@ -12,7 +12,13 @@ dependencies {
     implementation project(":core:common")
     implementation project(":core:designsystem")
 
+    // Features modules
     implementation project(":features:home:domain")
     implementation project(":features:home:models:domain")
     implementation project(":features:home:models:presentation")
+
+    // Shared modules
+    implementation project(":shared:user:models:presentation")
+    implementation project(":shared:user:models:domain")
+    implementation project(":shared:settings:domain")
 }

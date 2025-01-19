@@ -65,9 +65,11 @@ dependencies {
     implementation project(":core:localization")
 
     // Features modules
+    implementation project(":features:splash:presentation")
     implementation project(":features:login:presentation")
     implementation project(":features:home:presentation")
     implementation project(":features:home:data")
+    implementation project(":features:home:di")
 
     // Shared modules
     implementation project(":shared:settings:domain")

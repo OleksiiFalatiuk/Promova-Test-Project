@@ -1,0 +1,34 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'app.baseconfig'
+}
+
+dependencies {
+    // Kotlin
+    implementation libs.kotlinDependencies.core
+    implementation libs.kotlinDependencies.lifecycle
+
+    // Android
+    implementation libs.androidCoreDependencies.appcompat
+
+    // Room
+    implementation libs.roomDependencies.room
+    implementation libs.roomDependencies.ktx
+    implementation libs.roomDependencies.paging
+    kapt libs.roomDependencies.kapt
+    testImplementation libs.roomDependencies.testing
+    androidTestImplementation libs.roomDependencies.testing
+
+    // Tests
+    androidTestImplementation libs.testDependencies.runner
+    androidTestImplementation libs.testDependencies.core
+    androidTestImplementation libs.testDependencies.junitExt
+    androidTestImplementation libs.testDependencies.rules
+
+    // Hilt
+    implementation libs.hiltDependencies.hilt
+    kapt libs.hiltDependencies.kapt
+    implementation libs.hiltDependencies.navigationCompose
+}

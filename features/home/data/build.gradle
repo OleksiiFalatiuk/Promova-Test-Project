@@ -1,6 +1,7 @@
 plugins {
     id 'base.data'
     id 'android.paging'
+    id 'android.room'
 }
 
 android {
@@ -15,4 +16,5 @@ dependencies {
     implementation project(":features:home:domain")
     implementation project(":features:home:models:domain")
     implementation project(":features:home:models:remote")
+    implementation project(":features:home:models:local")
 }

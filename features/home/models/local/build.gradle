@@ -1,0 +1,16 @@
+plugins {
+    id 'base.models.local'
+    id 'android.room'
+}
+
+android {
+    namespace "${packageName}.features.home.models.local"
+}
+
+dependencies {
+    // Local modules
+    implementation project(":core:common")
+
+    // Local modules
+    implementation project(":features:home:models:domain")
+}

@@ -1,0 +1,32 @@
+plugins {
+    id 'core.database'
+}
+
+android {
+    namespace "${packageName}.core.database"
+
+    defaultConfig {
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+    }
+
+    sourceSets {
+        androidTest.assets.srcDirs +=
+                files("$projectDir/schemas".toString())
+    }
+}
+
+dependencies {
+    // Tests
+    androidTestImplementation libs.testDependencies.kotlinTest
+
+    // Local modules
+    implementation project(":core:common")
+
+    // Shared modules
+    implementation project(":features:home:data")
+    implementation project(":features:home:models:local")
+}

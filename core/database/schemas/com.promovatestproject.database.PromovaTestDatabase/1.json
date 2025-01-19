@@ -1,0 +1,58 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "102c14ef3bf4fbcb823f47ffed41b196",
+    "entities": [
+      {
+        "tableName": "FILMS",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`FILM_ID` INTEGER NOT NULL, `FILM_TITLE` TEXT NOT NULL, `FILM_VOTE_AVERAGE` REAL, `FILM_RELEASE_DATE` TEXT NOT NULL, `FILM_OVERVIEW` TEXT NOT NULL, PRIMARY KEY(`FILM_ID`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "FILM_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "FILM_TITLE",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "voteAverage",
+            "columnName": "FILM_VOTE_AVERAGE",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "releaseDate",
+            "columnName": "FILM_RELEASE_DATE",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "overview",
+            "columnName": "FILM_OVERVIEW",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "FILM_ID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '102c14ef3bf4fbcb823f47ffed41b196')"
+    ]
+  }
+}

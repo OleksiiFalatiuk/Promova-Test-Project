@@ -23,6 +23,9 @@ dependencies {
     androidTestImplementation libs.testDependencies.junitExt
     androidTestImplementation libs.testDependencies.compose
 
+    // Room
+    implementation libs.roomDependencies.room
+
     // Datastore
     implementation libs.datastoreDependencies.datastore
     implementation libs.datastoreDependencies.datastoreCore

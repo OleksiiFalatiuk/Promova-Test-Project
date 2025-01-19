@@ -1,3 +1,7 @@
 package com.promovatestproject.features.home.presentation.dimens
 
-internal object HomeDimens
+import androidx.compose.ui.unit.dp
+
+internal object HomeDimens {
+    val userAvatarSize = 40.dp
+}

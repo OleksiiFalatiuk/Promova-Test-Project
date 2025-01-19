@@ -21,7 +21,6 @@ import kotlinx.coroutines.flow.map
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.File
-import java.io.IOException
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
@@ -90,23 +89,23 @@ class HomeRepositoryImpl @Inject constructor(
     }
 
     private fun downloadImage(link: String, path: String) {
-        val request = Request.Builder()
-            .url(link)
-            .build()
+        try {
+            val request = Request.Builder()
+                .url(link)
+                .build()
 
-        return okHttpClient.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) {
-                throw IOException("Unexpected code $response")
-            }
+            okHttpClient.newCall(request).execute().use { response ->
+                val fileExtension = link.substringAfterLast('.', "jpg").substringBefore('?')
+                val destinationFile = File("$path.$fileExtension")
 
-            val fileExtension = link.substringAfterLast('.', "jpg").substringBefore('?')
-            val destinationFile = File("$path.$fileExtension")
-
-            response.body?.byteStream()?.use { inputStream ->
-                destinationFile.outputStream().use { outputStream ->
-                    inputStream.copyTo(outputStream)
+                response.body?.byteStream()?.use { inputStream ->
+                    destinationFile.outputStream().use { outputStream ->
+                        inputStream.copyTo(outputStream)
+                    }
                 }
             }
+        } catch (e: Exception) {
+            // handle exception
         }
     }
 

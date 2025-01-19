@@ -20,7 +20,7 @@ internal fun FilmsPagingContainer(
     showSnackbar: suspend (message: String) -> Unit,
     onLikeClick: (film: FilmPresentationModel) -> Unit,
     onDeleteClick: (film: FilmPresentationModel) -> Unit,
-    onShareClick: () -> Unit
+    onShareClick: (shareTitleOfFilm: String) -> Unit
 ) {
     PagingPullRefreshColumn(
         modifier = modifier,
@@ -29,6 +29,9 @@ internal fun FilmsPagingContainer(
         contentPadding = PaddingValues(Dimens.spacingNormal),
         verticalArrangement = Arrangement.spacedBy(Dimens.spacingBigSpecial),
         noItemsPlaceholder = {
+            FilmsEmptyContainer(modifier = Modifier.fillParentMaxSize())
+        },
+        onLoadingError = {
             FilmsEmptyContainer(modifier = Modifier.fillParentMaxSize())
         },
         placeholderItemsNum = 3,

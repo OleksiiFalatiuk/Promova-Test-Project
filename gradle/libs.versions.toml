@@ -1,7 +1,6 @@
 [versions]
 # androidCoreDependencies
 androidAppCompatVersion = "1.7.0"
-androidLifecycleVersion = "2.7.0"
 
 # kotlinDependencies
 androidxCoreVersion = "1.13.1"
@@ -9,7 +8,6 @@ aspectjweaverVersion = "1.9.22.1"
 kotlinCore = "2.0.0"
 lifecycleVersion = "2.8.3"
 liveDataVersion = "2.8.3"
-coroutinesCoreVersion = "1.7.3"
 coroutinesVersion = "1.8.1"
 kotlinSerializationVersion = "1.6.3"
 
@@ -24,7 +22,6 @@ hiltAndroidXIntegration = "1.2.0"
 roomVersion = "2.6.1"
 
 # networkDependencies
-pluginVersion = "1.4.1"
 retrofitVersion = "2.11.0"
 okHttpVersion = "4.12.0"
 kotlinRetrofitSerializationVersion = "1.0.0"
@@ -36,7 +33,6 @@ composeNavigationVersion = "2.8.2"
 composeMaterial3Version = "1.3.0"
 composeMaterial2Version = "1.7.3"
 composeConstraintLayout = "1.0.1"
-composeLifecycleRuntimeVersion = "2.8.6"
 composeRuntimeVersion = "1.7.3"
 
 # libs.composeAccompanist
@@ -44,7 +40,6 @@ accompanistVersion = "0.34.0"
 
 # composeCoil
 coilVersion = "2.6.0"
-coilZoomable = "0.13.0"
 
 # pagingDependencies
 pagingVersion = "3.3.0"
@@ -56,8 +51,6 @@ firebaseAuthVersion = "23.0.0"
 
 # playServiceDependencies
 playServiceAuthVersion = "21.2.0"
-mapsVersion = "19.0.0"
-playServiceLocationVersion = "21.3.0"
 
 # testDependencies
 junitVersion = "4.13.2"
@@ -66,30 +59,13 @@ runnerVersion = "1.5.2"
 testVersion = "1.5.0"
 espressoCoreVersion = "3.5.1"
 
-# mapDependencies
-composeMapsVersion = "4.3.2"
-
-# lottieDependencies
-lottieVersion = "6.4.0"
-
 # documentfileDependencies
 documentfileVersion = "1.0.1"
-
-# browserDependencies
-browserVersion = "1.8.0"
-
-# googlePlacesDependencies
-googlePlacesVersion = "4.0.0"
-googlePlacesKtxVersion = "3.1.1"
-
-# libphonenumber
-libphonenumberVersion = "8.13.35"
 
 # plugins
 # apply
 googleServicesPluginVersion = "4.4.2"
-paparazziPluginVersion = "1.3.1"
-aspectPluginVersion = "1.4.1"
+
 # dependencies
 androidApplicationPluginVersion = "8.4.2"
 androidLibraryPluginVersion = "8.4.2"
@@ -97,14 +73,8 @@ kotlinAndroidPluginVersion = "2.0.0"
 kotlinJvmPluginVersion = "2.0.0"
 androidHiltPluginVersion = "2.51"
 kotlinSerializationPluginVersion = "2.0.0"
-ktlintPluginVersion = "12.1.0"
-ktlintComposeRuleSetVersion = "0.4.12"
 moduleAssertionPluginVersion = "2.5.0"
 firebasePerfPluginVersion = "1.4.2"
-
-playServicesAuthApiPhoneVersion = "18.1.0"
-junit = "1.2.1"
-materialVersion = "1.12.0"
 
 [libraries]
 androidCoreDependencies-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidAppCompatVersion" }
@@ -116,8 +86,6 @@ kotlinDependencies-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-corout
 kotlinDependencies-lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleVersion" }
 kotlinDependencies-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "liveDataVersion" }
 kotlinDependencies-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerializationVersion" }
-
-ktlint-composeRuleSet = { module = "io.nlopez.compose.rules:ktlint", version.ref = "ktlintComposeRuleSetVersion" }
 
 datastoreDependencies-datastore = { module = "io.github.osipxd:security-crypto-datastore-preferences", version.ref = "datastoreVersion" }
 datastoreDependencies-datastoreCore = { module = "io.github.osipxd:security-crypto-datastore", version.ref = "datastoreVersion" }
@@ -131,9 +99,6 @@ networkDependencies-okHttp = { module = "com.squareup.okhttp3:okhttp", version.r
 networkDependencies-okHttpLogging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpVersion" }
 networkDependencies-kotlinSerialization = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "kotlinRetrofitSerializationVersion" }
 
-mapDependencies-composeMaps = { module = "com.google.maps.android:maps-compose", version.ref = "composeMapsVersion" }
-mapDependencies-utils = { module = "com.google.maps.android:maps-compose-utils", version.ref = "composeMapsVersion" }
-
 composeDependencies-composeActivity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
 composeDependencies-composeUi = { module = "androidx.compose.ui:ui", version.ref = "composeVersion" }
 composeDependencies-composePreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "composeVersion" }
@@ -144,7 +109,6 @@ composeDependencies-composeConstraintLayout = { module = "androidx.constraintlay
 composeDependencies-composeUiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeVersion" }
 composeDependencies-composeUiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "composeVersion" }
 composeDependencies-runtime = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "composeRuntimeVersion" }
-composeDependencies-lifecycleRuntime = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "composeLifecycleRuntimeVersion" }
 
 composeAccompanist-accompanistPager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistVersion" }
 composeAccompanist-accompanistPlaceholder = { module = "com.google.accompanist:accompanist-placeholder", version.ref = "accompanistVersion" }
@@ -154,13 +118,11 @@ composeAccompanist-permissions = { module = "com.google.accompanist:accompanist-
 
 composeCoil-core = { module = "io.coil-kt:coil-compose", version.ref = "coilVersion" }
 composeCoil-svg = { module = "io.coil-kt:coil-svg", version.ref = "coilVersion" }
-coil-zoomable = { group = "me.saket.telephoto", name = "zoomable-image-coil", version.ref = "coilZoomable" }
 
 pagingDependencies-core = { module = "androidx.paging:paging-runtime", version.ref = "pagingVersion" }
 pagingDependencies-compose = { module = "androidx.paging:paging-compose", version.ref = "pagingComposeVersion" }
 
 firebaseDependencies-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBomVersion" }
-firebaseDependencies-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
 firebaseDependencies-auth = { module = "com.google.firebase:firebase-auth-ktx", version.ref = "firebaseAuthVersion"  }
 firebaseDependencies-performance = { module = "com.google.firebase:firebase-perf" }
 
@@ -170,11 +132,7 @@ roomDependencies-kapt = { module = "androidx.room:room-compiler", version.ref = 
 roomDependencies-testing = { module = "androidx.room:room-testing", version.ref = "roomVersion" }
 roomDependencies-paging = { module = "androidx.room:room-paging", version.ref = "roomVersion" }
 
-libphonenumber-core = { module = "com.googlecode.libphonenumber:libphonenumber", version.ref = "libphonenumberVersion" }
-
 playServiceDependencies-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServiceAuthVersion" }
-playServiceDependencies-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "mapsVersion" }
-playServiceDependencies-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServiceLocationVersion" }
 
 testDependencies-junit = { module = "junit:junit", version.ref = "junitVersion" }
 testDependencies-junitExt = { module = "androidx.test.ext:junit-ktx", version.ref = "junitKtxVersion" }
@@ -185,23 +143,8 @@ testDependencies-rules = { module = "androidx.test:rules", version.ref = "testVe
 testDependencies-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutinesVersion" }
 testDependencies-kotlinTest = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlinCore" }
 testDependencies-paging = { module = "androidx.paging:paging-testing", version.ref = "pagingVersion" }
-testDependencies-hilt = { module = "com.google.dagger:hilt-android-testing", version.ref = "hiltVersion" }
-testDependencies-espressoCore = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
-
-lottieDependencies-core = { module = "com.airbnb.android:lottie", version.ref = "lottieVersion" }
-lottieDependencies-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieVersion" }
 
 documentfileDependencies-core = { module = "androidx.documentfile:documentfile", version.ref = "documentfileVersion" }
-
-browserDependencies-core = { module = "androidx.browser:browser", version.ref = "browserVersion" }
-
-googlePlacesDependencies-core = { module = "com.google.android.libraries.places:places", version.ref = "googlePlacesVersion" }
-googlePlacesDependencies-ktx = { module = "com.google.maps.android:places-ktx", version.ref = "googlePlacesKtxVersion" }
-
-play-services-auth-api-phone = { group = "com.google.android.gms", name = "play-services-auth-api-phone", version.ref = "playServicesAuthApiPhoneVersion" }
-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
-material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidApplicationPluginVersion"}
@@ -211,10 +154,7 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinJvmPluginVersion" }
 android-hilt = { id = "com.google.dagger.hilt.android", version.ref = "androidHiltPluginVersion" }
 kotlin-serialization= { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerializationPluginVersion" }
-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlintPluginVersion" }
 module-assertion = { id = "com.jraska.module.graph.assertion", version.ref = "moduleAssertionPluginVersion" }
-aspect = { id = "com.ibotta:plugin", version.ref = "aspectPluginVersion" }
 
 root-google-services = { id = "com.google.gms:google-services", version.ref = "googleServicesPluginVersion" }
 root-firebase-perf = { id = "com.google.firebase:perf-plugin", version.ref = "firebasePerfPluginVersion" }
-root-paparazzi = { id = "app.cash.paparazzi:paparazzi-gradle-plugin", version.ref = "paparazziPluginVersion" }

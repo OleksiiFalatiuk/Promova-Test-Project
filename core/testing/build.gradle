@@ -9,6 +9,10 @@ plugins {
 
 android {
     namespace 'com.promovatestproject.testing'
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {

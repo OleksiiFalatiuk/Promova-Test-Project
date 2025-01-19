@@ -92,6 +92,12 @@ internal class HomeViewModel @Inject constructor(
         }
     }
 
+    fun shareFilm(shareTitleOfFilm: String) {
+        viewModelScope.launch(coroutineDispatcher) {
+            _sideEffect.send(SideEffect.ShareFilm(shareTitleOfFilm = shareTitleOfFilm))
+        }
+    }
+
     fun likeFilm(film: FilmPresentationModel) {
         viewModelScope.launch(coroutineDispatcher) {
             insertFilmToLocalUseCase(film = film.toDomainModel())
@@ -113,6 +119,7 @@ internal class HomeViewModel @Inject constructor(
 
 internal sealed class SideEffect {
     data class ShowSnackbar(val message: String) : SideEffect()
+    data class ShareFilm(val shareTitleOfFilm: String) : SideEffect()
 }
 
 internal data class HomeViewModelState(

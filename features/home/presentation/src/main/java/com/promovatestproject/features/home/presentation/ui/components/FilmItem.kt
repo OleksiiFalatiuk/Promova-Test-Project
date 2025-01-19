@@ -34,7 +34,7 @@ internal fun FilmItem(
     isFilmLiked: Boolean,
     onLikeClick: (film: FilmPresentationModel) -> Unit,
     onDeleteClick: (film: FilmPresentationModel) -> Unit,
-    onShareClick: () -> Unit
+    onShareClick: (shareTitleOfFilm: String) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -109,7 +109,9 @@ internal fun FilmItem(
 
             TextButton(
                 text = stringResource(id = LocalizableResources.string.share_button_title).uppercase(),
-                onClick = onShareClick
+                onClick = {
+                    onShareClick("${film.title}\n${film.overview}")
+                }
             )
         }
     }

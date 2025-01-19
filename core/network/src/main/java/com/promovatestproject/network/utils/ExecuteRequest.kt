@@ -7,7 +7,6 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
-import okhttp3.Call
 import retrofit2.Response
 import java.net.ConnectException
 import java.net.SocketTimeoutException
@@ -19,24 +18,6 @@ suspend fun <T : Any> executeRequest(request: suspend () -> Response<T>): Common
     when (response.isSuccessful) {
         true -> CommonResponse.Success(response.body() as T)
         else -> createErrorResponse(response)
-    }
-} catch (e: Exception) {
-    if (e is CancellationException) {
-        throw e
-    }
-
-    createErrorFromException(e)
-}
-
-suspend fun executeOkhttpRequest(request: suspend () -> Call): CommonResponse<Unit> = try {
-    val call = request.invoke()
-    val response = call.execute()
-
-    if (response.isSuccessful) {
-        CommonResponse.Success(Unit)
-    } else {
-        val errorData = ErrorData(null, response.message, emptyList())
-        CommonResponse.Error(errorData)
     }
 } catch (e: Exception) {
     if (e is CancellationException) {

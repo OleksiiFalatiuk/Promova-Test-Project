@@ -46,11 +46,6 @@ internal fun HandleSideEffects(
                 delay(splashScreenDelay)
             }
 
-            // if destination == currentBackStackEntry.destination do nothing
-            if (navController.currentBackStackEntry?.destination?.route == destination) {
-                return@collectLatest
-            }
-
             navController.navigate(destination) { popUpTo(RootDestination.ROOT.route) }
         }
     }

@@ -11,10 +11,10 @@ class HomeLocalDataSourceImpl @Inject constructor(
     override fun getAllFlow(): Flow<List<FilmRoomModel>> = dao.getAllFlow()
 
     override suspend fun insertFilm(film: FilmRoomModel) {
-        dao.insertFilm(film)
+        dao.upsert(film)
     }
 
     override suspend fun deleteTour(film: FilmRoomModel) {
-        dao.deleteTour(film)
+        dao.delete(film)
     }
 }

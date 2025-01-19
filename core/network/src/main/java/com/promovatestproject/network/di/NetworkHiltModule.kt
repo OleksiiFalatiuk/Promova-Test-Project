@@ -1,5 +1,6 @@
 package com.promovatestproject.network.di
 
+import com.promovatestproject.network.di.constants.NetworkConstants
 import com.promovatestproject.network.interceptors.AccessTokenInterceptor
 import com.promovatestproject.network.interceptors.accessTokenInterceptor
 import com.promovatestproject.network.okhttp.OkHttpInitializer
@@ -15,9 +16,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 internal object NetworkHiltModule {
+    @Singleton
     @Provides
     fun provideAccessTokenInterceptor() =
-        accessTokenInterceptor { "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MGE1NzY4ODRjNGM4M2JiYTVhYTEyZjRhNzEwMzhhZiIsIm5iZiI6MTYzNzYwODQ1My42OTQwMDAyLCJzdWIiOiI2MTliZWMwNWJjMmNiMzAwNDI4MGIyNGUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.j7Vi1RFXq96ZItNmF4ZrQgewPCA_J0Qrp_Hv6OJEWcg" }
+        accessTokenInterceptor { NetworkConstants.ACCESS_TOKEN }
 
     @Singleton
     @Provides
@@ -30,7 +32,7 @@ internal object NetworkHiltModule {
         accessTokenInterceptor: AccessTokenInterceptor,
         okHttpClient: OkHttpClient
     ): Retrofit = RetrofitInitializer.createGeneralRetrofitClient(
-        baseUrl = "https://api.themoviedb.org/3/",
+        baseUrl = NetworkConstants.BASE_URL,
         enableLogging = true,
         okHttpClient = okHttpClient,
         accessTokenInterceptor

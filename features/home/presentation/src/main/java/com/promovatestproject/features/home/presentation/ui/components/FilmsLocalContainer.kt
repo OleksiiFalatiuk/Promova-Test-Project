@@ -18,7 +18,7 @@ internal fun FilmsLocalContainer(
     localFilms: List<HomePresentationModel>,
     onLikeClick: (film: FilmPresentationModel) -> Unit,
     onDeleteClick: (film: FilmPresentationModel) -> Unit,
-    onShareClick: () -> Unit
+    onShareClick: (shareTitleOfFilm: String) -> Unit
 ) {
     Column(
         modifier = modifier.fillMaxSize(),

@@ -3,6 +3,7 @@ package com.promovatestproject.database.di
 import android.content.Context
 import androidx.room.Room
 import com.promovatestproject.database.PromovaTestDatabase
+import com.promovatestproject.database.di.constants.DatabaseConstants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,6 +19,6 @@ object DatabaseHiltModule {
     fun providePromovaTestDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
         context.applicationContext,
         PromovaTestDatabase::class.java,
-        "fpDatabase.db"
+        DatabaseConstants.DATABASE_NAME
     ).build()
 }

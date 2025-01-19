@@ -4,26 +4,12 @@ import java.io.File
 
 object FileHelper {
     fun getFileByName(filesDir: File, directory: String, name: String): File? {
-        val files = File(filesDir, directory).listFiles()
-        if (files != null) {
-            for (file in files) {
-                if (file.nameWithoutExtension == name) {
-                    return file
-                }
-            }
-        }
-        return null
+        return File(filesDir, directory).listFiles()?.find { it.nameWithoutExtension == name }
     }
 
     fun deleteFileByName(filesDir: File, directory: String, name: String): Boolean {
-        val files = File(filesDir, directory).listFiles()
-        if (files != null) {
-            for (file in files) {
-                if (file.nameWithoutExtension == name) {
-                    return file.delete()
-                }
-            }
-        }
-        return false
+        return File(filesDir, directory).listFiles()?.find {
+            it.nameWithoutExtension == name
+        }?.delete() ?: false
     }
 }

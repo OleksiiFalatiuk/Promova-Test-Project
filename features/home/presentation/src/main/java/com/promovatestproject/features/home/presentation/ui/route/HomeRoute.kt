@@ -15,9 +15,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.common.intent.IntentHelper
 import com.example.designsystem.components.pager.TabsPager
 import com.example.designsystem.resources.dimens.Dimens
 import com.example.designsystem.resources.figma.colors.FigmaColors
@@ -47,7 +49,7 @@ internal fun HomeRoute(
         showSnackbar = viewModel::showSnackbar,
         onLikeClick = viewModel::likeFilm,
         onDeleteClick = viewModel::deleteLikedFilm,
-        onShareClick = {}
+        onShareClick = viewModel::shareFilm
     )
 
     HandleSideEffects(
@@ -61,11 +63,20 @@ internal fun HandleSideEffects(
     sideEffect: Flow<SideEffect>,
     showSnackbar: suspend (message: String) -> Unit
 ) {
+    val context = LocalContext.current
+
     LaunchedEffect(Unit) {
         sideEffect.collectLatest { sideEffectState ->
             when (sideEffectState) {
                 is SideEffect.ShowSnackbar -> {
                     showSnackbar(sideEffectState.message)
+                }
+
+                is SideEffect.ShareFilm -> {
+                    IntentHelper.sharePlainText(
+                        context = context,
+                        text = sideEffectState.shareTitleOfFilm
+                    )
                 }
             }
         }
@@ -78,7 +89,7 @@ internal fun HomeScreen(
     showSnackbar: (message: String) -> Unit,
     onLikeClick: (film: FilmPresentationModel) -> Unit,
     onDeleteClick: (film: FilmPresentationModel) -> Unit,
-    onShareClick: () -> Unit
+    onShareClick: (shareTitleOfFilm: String) -> Unit
 ) {
     Column(
         modifier = Modifier

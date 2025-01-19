@@ -6,25 +6,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.paging.LoadState
-import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.collectAsLazyPagingItems
-import kotlinx.coroutines.flow.Flow
-
-@Composable
-fun <T : Any> PagingContainer(
-    pagingDataFlow: Flow<PagingData<T>>,
-    showSnackbar: suspend (message: String) -> Unit,
-    pagingContent: @Composable (pagingState: PagingState<T>) -> Unit
-) {
-    val pagingItems = pagingDataFlow.collectAsLazyPagingItems()
-
-    PagingContainer(
-        pagingItems = pagingItems,
-        showSnackbar = showSnackbar,
-        pagingContent = pagingContent
-    )
-}
 
 @Composable
 fun <T : Any> PagingContainer(

@@ -56,7 +56,4 @@ dependencies {
 
     // Accompanist
     implementation libs.composeAccompanist.navigation
-
-    // LibPhoneNumber
-    implementation libs.libphonenumber.core
 }

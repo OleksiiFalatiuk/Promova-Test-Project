@@ -27,67 +27,10 @@ inline fun <T : Any, R : Any> Response<T>.map(convert: (T) -> R): Response<R> = 
     )
 }
 
-inline fun <T, R : Any> T.wrapResponse(block: T.() -> R): Response<R> = runCatching(block).fold(
-    onSuccess = { Response.Success(it) },
-    onFailure = {
-        if (it is CancellationException) {
-            throw it
-        } else {
-            Response.Error(
-                ErrorData(
-                    code = null,
-                    message = it.message
-                )
-            )
-        }
-    }
-)
-
-inline fun <T, R : Any> T.wrapResponseFlatten(block: T.() -> Response<R>): Response<R> = runCatching(block).fold(
-    onSuccess = { it },
-    onFailure = {
-        if (it is CancellationException) {
-            throw it
-        } else {
-            Response.Error(
-                ErrorData(
-                    code = null,
-                    message = it.message
-                )
-            )
-        }
-    }
-)
-
-inline fun <T : Any> Response<T>.onSuccess(block: (T) -> Unit): Response<T> {
-    if (this is Response.Success) {
-        block(data)
-    }
-
-    return this
-}
-
-fun <T : Any, R : Any> Response.Error<T>.mapError(): Response<R> = Response.Error(error)
-
-fun <T : Any> Response<T>.getOrNull(): T? = if (this is Response.Success) {
-    this.data
-} else {
-    null
-}
-
-inline fun <A : Any, C : Any> Response<A>.flatMap(block: (A) -> Response<C>): Response<C> = when (this) {
-    is Response.Success -> block(this.data)
-    is Response.Error -> this.mapError()
-}
-
 object ErrorCodes {
     const val INVALID_PARAMS = 422
     const val UNKNOWN_ERROR = 1024
-    const val NOT_FOUND = 404
-
     const val GOOGLE_SIGN_IN_ERROR = 1001
     const val GOOGLE_SIGN_IN_CANCELED = 1002
-    const val APPLE_SIGN_IN_ERROR = 1003
-    const val APPLE_SIGN_IN_CANCELED = 1004
     const val INTERNET_CONNECTION_ERROR = 1025
 }

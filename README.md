@@ -18,7 +18,6 @@
 - MultiModule
 
 ##### Модулі:
-shared - contains shared elements that can be used in feature modules.
 
 + app
   + Містить основні компоненти (Activity, Application, MainViewModel тощо) та базову навігацію.

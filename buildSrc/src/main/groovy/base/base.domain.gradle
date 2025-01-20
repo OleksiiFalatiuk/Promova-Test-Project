@@ -6,12 +6,6 @@ plugins {
     id 'core.localization'
 }
 
-project.afterEvaluate {
-    if (gradle.startParameter.taskNames.any { it.contains("Release") }) {
-        plugins.apply("com.ibotta.gradle.aop")
-    }
-}
-
 dependencies {
     releaseImplementation libs.aspectjweaver
 
